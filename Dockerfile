@@ -1,17 +1,11 @@
-FROM btwiuse/ufo AS ufo
+FROM btwiuse/arch:mathematica
 
-# FROM wolframresearch/wolframengine:14.3.0
+RUN pacman -Syu go expect
 
-FROM btwiuse/arch
+ADD . /app
 
-RUN pacman -Syu --noconfirm yay aria2
+RUN chmod +x /app/activate
 
-USER btwiuse
+RUN go build -o /bin/keygen /app/keygen.go
 
-RUN yay -S --noconfirm mathematica
-
-USER root
-
-COPY --from=ufo /usr/bin/ufo /usr/bin/
-
-CMD ufo term
+# RUN /app/activate
