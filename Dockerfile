@@ -1,6 +1,6 @@
 FROM btwiuse/ufo AS ufo
 FROM btwiuse/arch:mathematica-keygen AS keygen
-FROM btwiuse/arch:mathematica-light
+FROM btwiuse/arch:mathematica
 
 COPY --from=ufo /usr/bin/ufo /usr/bin/
 COPY --from=keygen /usr/bin/keygen /usr/bin/
