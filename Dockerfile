@@ -1,6 +1,6 @@
 FROM btwiuse/arch:mathematica
 
-RUN pacman -Syu go expect
+RUN pacman -Syu go expect --noconfirm
 
 ADD . /app
 
