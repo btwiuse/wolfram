@@ -1,11 +1,11 @@
-FROM btwiuse/arch:mathematica
+FROM btwiuse/ufo AS ufo
+FROM btwiuse/arch:mathematica-keygen AS keygen
+FROM btwiuse/arch:mathematica-light
 
-RUN pacman -Syu go expect --noconfirm
+COPY --from=ufo /usr/bin/ufo /usr/bin/
+COPY --from=keygen /usr/bin/keygen /usr/bin/
+COPY --from=keygen /usr/bin/activate /usr/bin/
 
-ADD . /app
+RUN activate
 
-RUN chmod +x /app/activate
-
-RUN go build -o /bin/keygen /app/keygen.go
-
-# RUN /app/activate
+RUN ufo term
