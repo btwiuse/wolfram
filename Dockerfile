@@ -1,6 +1,6 @@
 FROM btwiuse/ufo AS ufo
 
-FROM btwiuse/arch:wolframengine
+FROM btwiuse/arch:wljs
 
 COPY --from=ufo /usr/bin/ufo /usr/bin/
 
