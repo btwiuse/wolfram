@@ -4,4 +4,4 @@ FROM btwiuse/arch:wljs
 
 COPY --from=ufo /usr/bin/ufo /usr/bin/
 
-CMD ["bash", "-c", "ufo term"]
+CMD ["bash", "-c", "activate; ufo term"]
